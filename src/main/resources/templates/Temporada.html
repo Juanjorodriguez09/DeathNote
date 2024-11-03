@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Temporadas - Death Note</title>
+  <link rel="stylesheet" th:href="@{/Styles.css}">
+</head>
+<body>
+<div class="container">
+  <h1>Temporadas de Death Note</h1>
+
+  <div th:each="temporada : ${temporadas}">
+    <h2>Temporada <span th:text="${temporada.numero}"></span> - Año: <span th:text="${temporada.anoEmision}"></span></h2>
+    <a th:href="@{/temporada/{id}/capitulos(id=${temporada.id})}" class="button">Ver Capítulos</a>
+  </div>
+
+  <a th:href="@{/}" class="button">Volver a Inicio</a>
+</div>
+</body>
+</html>

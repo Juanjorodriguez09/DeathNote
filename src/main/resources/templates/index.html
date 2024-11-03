@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Death Note - Página Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #e50914;
+        }
+
+        .poster {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .content {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #e50914;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #b20710;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <p th:text="${capituloMejorCalificado != null ? capituloMejorCalificado.descripcion : 'No hay capítulos disponibles'}"></p>
+
+    <!-- Título de la serie -->
+    <h1 th:text="${serie.nombre}">Death Note</h1>
+
+    <!-- Póster de la serie -->
+    <img th:src="@{${serie.posterUrl}}" alt="Póster de la serie" class="poster">
+
+    <!-- Información de la serie -->
+    <div class="content">
+        <p><strong>Clasificación:</strong> <span th:text="${serie.clasificacion}">Animación, Suspenso, Fantasía</span></p>
+        <p><strong>Descripción:</strong> <span th:text="${serie.descripcion}">Un libro malévolo (Death Note) cae en manos de Yagami Light, un joven de 17 años de edad. Este cuaderno negro lo encuentra un día en el patio de su colegio. Ese libro tiene unas instrucciones claras y encierra una magia oscura: si alguien anota un nombre en sus páginas, esa persona muere a los pocos segundos.</span></p>
+        <p><strong>Número de Temporadas:</strong> <span th:text="${serie.numeroTemporadas}">1</span></p>
+        <p><strong>Año de Emisión:</strong> <span th:text="${serie.anioEmision}">2006-2007</span></p>
+        <p><strong>Calificación Promedio:</strong> <span th:text="${serie.calificacion}">8.4</span></p>
+    </div>
+
+    <!-- Botones de navegación -->
+    <div class="buttons">
+        <a th:href="@{/temporadas}" class="button">Ver Temporadas</a>
+        <a th:href="@{/personajes}" class="button">Personajes</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>Creado por: Juan Jose Rodriguez Bermudez</p>
+        <p>Fecha de creación: 01/11/2024</p>
+        <p>Proyecto para Spring Boot</p>
+    </div>
+</div>
+</body>
+</html>

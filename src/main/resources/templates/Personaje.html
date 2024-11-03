@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Death Note - Personajes</title>
+  <link rel="stylesheet" th:href="@{/Styles.css}">
+</head>
+<body>
+<div class="container">
+  <h2>Personajes</h2>
+  <ul>
+    <li th:each="personaje : ${personajes}">
+      <p><strong>Nombre:</strong> <span th:text="${personaje.nombre}"></span></p>
+      <p><strong>Descripción:</strong> <span th:text="${personaje.descripcion}"></span></p>
+      <p><strong>Rol:</strong> <span th:text="${personaje.rol}"></span></p>
+      <img th:src="@{'/static/' + ${personaje.imagenUrl}}" alt="Imagen del personaje" class="poster">
+    </li>
+  </ul>
+  <a href="/static" class="button">Volver a la página principal</a>
+</div>
+</body>
+</html>

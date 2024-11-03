@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Death Note - Capítulos</title>
+    <link rel="stylesheet" th:href="@{/Styles.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Capítulos</h2>
+    <ul>
+        <li th:each="capitulo : ${capitulos}">
+            <p><strong>Capítulo:</strong> <span th:text="${capitulo.nombre}"></span></p>
+            <p><strong>Descripción:</strong> <span th:text="${capitulo.descripcion}"></span></p>
+            <img th:src="@{'/static/' + ${capitulo.imagenUrl}}" alt="Imagen del capítulo" class="poster">
+        </li>
+    </ul>
+    <a href="/api/temporadas" class="button">Volver a Temporadas</a>
+</div>
+</body>
+</html>
